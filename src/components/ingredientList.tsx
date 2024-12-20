@@ -1,7 +1,5 @@
-interface IngredientListProps{
-    ingredients: string[];
-    handleGetRecipe:()=> void;
-}
+import { IngredientListProps } from "../types";
+
 
 export default function IngredientList({ingredients,
     handleGetRecipe
