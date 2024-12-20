@@ -1,50 +1,88 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Easy Recipe Generator using Hugging Face API
 
-Currently, two official plugins are available:
+This web application allows users to input a list of ingredients they have, and it will recommend a recipe they could make using the Hugging Face API. The project leverages the `Mistral-7B-Instruct` model from Hugging Face to generate recipe suggestions based on user input.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Project Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This web application helps users quickly find a recipe suggestion by providing a list of available ingredients. It interacts with the Hugging Face API to fetch a generated recipe based on those ingredients.
 
-- Configure the top-level `parserOptions` property like this:
+### Key Features:
+- User can input ingredients they have available.
+- Displays a recipe suggestion generated via the Hugging Face model.
+- Easy-to-use interface with ingredients input and recipe suggestion button.
+- Displays a loading state to let the user know when the recipe is being generated.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Installation
+
+To get the project up and running locally, follow these steps:
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/recipe-generator.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 2. Navigate to the project directory
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+cd recipe-generator
 ```
+
+### 3. Install the dependencies
+
+ Using `pnpm`:
+
+```bash
+pnpm install
+```
+
+### 4. Set up environment variables
+
+Create a `.env` file in the root of the project with the following content:
+
+```bash
+VITE_PUBLIC_API_HF_ACCESS_TOKEN=your_hugging_face_access_token_here
+```
+
+To get a Hugging Face API token:
+1. Go to [Hugging Face](https://huggingface.co).
+2. Log in or create an account.
+3. Navigate to your [API tokens page](https://huggingface.co/settings/tokens).
+4. Copy your token and paste it into the `.env` file.
+
+### 5. Start the development server
+
+Using `pnpm`:
+
+```bash
+pnpm dev
+```
+
+The app should now be accessible at `http://localhost:5173`.
+
+---
+
+## Usage
+
+Once the project is running locally, you can interact with the app by:
+1. Adding a list of ingredients you have (e.g., eggs, flour, sugar).
+2. Clicking the "Get a recipe" button.
+3. The app will generate and display a recipe suggestion based on those ingredients.
+
+You can also delete or remove ingredients by clicking the "X" next to the ingredient.
+
+
+
+## Contributing
+
+Contributions are welcome  to improve this project!
+
+### How to contribute:
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature/new-feature`.
+3. Make your changes.
+4. Commit your changes: `git commit -am 'Add new feature'`.
+5. Push to the branch: `git push origin feature/new-feature`.
+6. Create a new Pull Requst
